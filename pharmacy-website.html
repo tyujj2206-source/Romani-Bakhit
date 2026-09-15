@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صيدلية د. روماني بخيت محارب</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Tajawal:wght@300;400;500;700&display=swap');
+
+:root{
+  --ink:#132821;
+  --teal-dark:#0F3E35;
+  --teal:#1F6F5C;
+  --teal-soft:#DCEAE4;
+  --bg:#F4F2EA;
+  --bg-panel:#FFFFFF;
+  --amber:#C4863A;
+  --amber-soft:#F3E3CC;
+  --line:#D8D2C2;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Tajawal', sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.8;
+}
+h1,h2,h3,.brand{
+  font-family:'El Messiri', serif;
+}
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+/* Header */
+header{
+  position:sticky; top:0; z-index:50;
+  background:var(--teal-dark);
+  color:#F4F2EA;
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 24px; max-width:1080px; margin:0 auto;
+  gap:16px; flex-wrap:wrap;
+}
+.brand{
+  font-size:1.25rem; font-weight:700; color:#fff;
+  display:flex; align-items:center; gap:10px;
+}
+.brand .mark{
+  width:30px; height:30px; flex-shrink:0;
+}
+nav ul{display:flex; gap:26px; flex-wrap:wrap;}
+nav a{
+  font-size:.95rem; color:#CFE4DC; padding:4px 2px;
+  border-bottom:2px solid transparent;
+  transition:border-color .2s, color .2s;
+}
+nav a:hover{color:#fff; border-color:var(--amber);}
+
+/* Hero */
+.hero{
+  background:linear-gradient(180deg, var(--teal-dark) 0%, var(--teal) 130%);
+  color:#F4F2EA;
+  padding:70px 0 90px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute; left:-80px; bottom:-120px;
+  width:340px; height:340px; border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+.hero-inner{
+  display:grid; grid-template-columns:1.3fr 1fr; gap:50px; align-items:center;
+  position:relative; z-index:2;
+}
+.eyebrow-line{
+  color:var(--amber-soft); font-size:1rem; margin-bottom:10px; opacity:.9;
+}
+.hero h1{
+  font-size:2.5rem; font-weight:700; line-height:1.35; color:#fff;
+  margin-bottom:18px;
+}
+.hero p.lead{
+  font-size:1.05rem; color:#DCEAE4; max-width:52ch; margin-bottom:30px;
+}
+.hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 26px; border-radius:6px; font-size:1rem; font-weight:500;
+  cursor:pointer; border:none; transition:transform .15s, background .2s;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-amber{background:var(--amber); color:#fff;}
+.btn-amber:hover{background:#B4762F;}
+.btn-outline{border:1.5px solid rgba(255,255,255,.5); color:#fff;}
+.btn-outline:hover{background:rgba(255,255,255,.1);}
+
+.hero-card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;
+  padding:26px;
+  backdrop-filter:blur(2px);
+}
+.hero-card h3{color:#fff; font-size:1.05rem; margin-bottom:14px; font-weight:600;}
+.hero-card .row{
+  display:flex; gap:12px; align-items:flex-start; margin-bottom:14px; font-size:.92rem; color:#E4EFEA;
+}
+.hero-card .row:last-child{margin-bottom:0;}
+.hero-card .ic{
+  width:20px; height:20px; flex-shrink:0; margin-top:3px; color:var(--amber-soft);
+}
+
+/* Section shared */
+section{padding:70px 0;}
+.section-head{max-width:60ch; margin-bottom:40px;}
+.section-head h2{font-size:1.9rem; color:var(--teal-dark); margin-bottom:12px; font-weight:700;}
+.section-head p{color:#465650; font-size:1.02rem;}
+
+/* Age groups */
+.age-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+}
+.age-card{
+  background:var(--bg-panel);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:26px 22px;
+  position:relative;
+}
+.age-card .tag{
+  display:inline-block; font-size:.82rem; color:var(--teal);
+  border:1px solid var(--teal-soft); background:var(--teal-soft);
+  padding:3px 12px; border-radius:20px; margin-bottom:14px;
+}
+.age-card h3{font-size:1.15rem; margin-bottom:12px; color:var(--ink); font-weight:600;}
+.age-card ul li{
+  font-size:.92rem; color:#455249; padding-right:16px; position:relative; margin-bottom:9px;
+}
+.age-card ul li::before{
+  content:"–"; position:absolute; right:0; color:var(--amber);
+}
+
+/* Scheduled meds */
+.scheduled{
+  background:var(--teal-dark);
+  color:#EFEAdd;
+}
+.scheduled .section-head h2{color:#fff;}
+.scheduled .section-head p{color:#C7DBD3;}
+.sched-inner{
+  display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+}
+.sched-copy p{color:#D9E7E1; margin-bottom:16px; font-size:.98rem;}
+.sched-copy ul{margin-top:18px;}
+.sched-copy ul li{
+  color:#E7F0EB; font-size:.95rem; margin-bottom:12px; padding-right:20px; position:relative;
+}
+.sched-copy ul li::before{content:"✓"; position:absolute; right:0; color:var(--amber-soft);}
+
+.timeline-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:10px; padding:30px;
+}
+.timeline-card .big{
+  font-size:3.4rem; font-weight:700; color:#fff; font-family:'El Messiri',serif; line-height:1;
+}
+.timeline-card .big span{font-size:1.3rem; color:var(--amber-soft); font-weight:500;}
+.timeline-card .cap{color:#CFE1DA; font-size:.95rem; margin:10px 0 26px;}
+.tl-bar{
+  display:flex; gap:4px; margin-bottom:10px;
+}
+.tl-bar .seg{
+  flex:1; height:8px; border-radius:4px; background:rgba(255,255,255,.15);
+}
+.tl-bar .seg.on{background:var(--amber);}
+.tl-labels{display:flex; justify-content:space-between; font-size:.78rem; color:#B9CFC6;}
+
+/* Order section */
+.order{
+  background:var(--bg-panel);
+}
+.order-grid{
+  display:grid; grid-template-columns:1fr 1.15fr; gap:50px; align-items:start;
+}
+.order-note{
+  background:var(--teal-soft); border-radius:8px; padding:22px; margin-top:22px;
+  font-size:.9rem; color:#1D4237;
+}
+.order-note strong{display:block; margin-bottom:6px; color:var(--teal-dark);}
+
+form{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:30px;
+}
+.field{margin-bottom:18px;}
+.field label{
+  display:block; font-size:.9rem; margin-bottom:7px; color:#33453C; font-weight:500;
+}
+.field input, .field textarea, .field select{
+  width:100%; padding:11px 14px; border:1px solid var(--line); border-radius:6px;
+  font-family:'Tajawal',sans-serif; font-size:.95rem; background:#fff; color:var(--ink);
+}
+.field input:focus, .field textarea:focus, .field select:focus{
+  outline:none; border-color:var(--teal);
+}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+textarea{min-height:100px; resize:vertical;}
+.submit-row{display:flex; align-items:center; gap:14px; margin-top:8px; flex-wrap:wrap;}
+.hint{font-size:.82rem; color:#6B7A72;}
+
+/* Footer / contact */
+footer{
+  background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;
+}
+.foot-grid{
+  display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px; margin-bottom:36px;
+}
+.foot-grid h4{color:#fff; font-size:1.05rem; margin-bottom:16px; font-weight:600;}
+.foot-grid p, .foot-grid a{font-size:.9rem; color:#B9CFC6; display:block; margin-bottom:10px;}
+.foot-grid a:hover{color:#fff;}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.12); padding-top:20px;
+  font-size:.82rem; color:#93A8A0; text-align:center;
+}
+
+/* Toast */
+#toast{
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
+  background:var(--teal-dark); color:#fff; padding:14px 26px; border-radius:8px;
+  font-size:.92rem; opacity:0; pointer-events:none; transition:opacity .25s, transform .25s;
+  box-shadow:0 8px 24px rgba(0,0,0,.2); z-index:100;
+}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+@media(max-width:860px){
+  .hero-inner, .sched-inner, .order-grid{grid-template-columns:1fr;}
+  .age-grid{grid-template-columns:1fr 1fr;}
+  .foot-grid{grid-template-columns:1fr; gap:26px;}
+  .field-row{grid-template-columns:1fr;}
+  nav ul{gap:16px; font-size:.85rem;}
+  .hero h1{font-size:1.9rem;}
+}
+@media(max-width:520px){
+  .age-grid{grid-template-columns:1fr;}
+  .nav-row{flex-direction:column; align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" fill="none"><rect x="12" y="3" width="6" height="24" rx="2" fill="#C4863A"/><rect x="3" y="12" width="24" height="6" rx="2" fill="#C4863A"/></svg>
+      صيدلية د. روماني بخيت محارب
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#age-groups">إرشادات الأدوية</a></li>
+        <li><a href="#scheduled">الأدوية المجدولة</a></li>
+        <li><a href="#order">اطلب دواء</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow-line">مركز البلينا، سوهاج</div>
+      <h1>صيدليتكم الموثوقة في قلب البلينا</h1>
+      <p class="lead">معلومات واضحة عن الأدوية تناسب كل أفراد الأسرة، من الأطفال إلى كبار السن، وخدمة طلب سريعة لما تحتاجه دون عناء.</p>
+      <div class="hero-actions">
+        <a href="#order" class="btn btn-amber">اطلب دواءك الآن</a>
+        <a href="#age-groups" class="btn btn-outline">تعرّف على الإرشادات</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>بيانات الصيدلية</h3>
+      <div class="row">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        <span>مركز البلينا، سوهاج – شارع تقسيم عادل وساف، بجوار بنك مصر (فرع أمون)</span>
+      </div>
+      <div class="row">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-2-2 2a13 13 0 0 1-6-6l2-2-2-6-4 3z"/></svg>
+        <span dir="ltr">01200570091</span>
+      </div>
+      <div class="row">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+        <span>الأدوية المجدولة تُصرف بروشتة سارية حتى 5 أيام من تاريخ الكشف</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="age-groups">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>إرشادات عامة حسب العمر</h2>
+      <p>معلومات مبسطة لمساعدتكم على استخدام الأدوية بأمان. هذه إرشادات عامة ولا تغني عن استشارة الطبيب أو الصيدلي عند الحاجة.</p>
+    </div>
+    <div class="age-grid">
+      <div class="age-card">
+        <span class="tag">الأطفال</span>
+        <h3>من الولادة حتى 12 سنة</h3>
+        <ul>
+          <li>لا تُقدَّر الجرعة بالتخمين، استخدم دائمًا المِلعقة أو المِحقنة المرفقة بالدواء</li>
+          <li>اسأل الصيدلي قبل إعطاء أي دواء غير موصوف من الطبيب</li>
+          <li>احفظ الأدوية بعيدًا عن متناول يد الطفل</li>
+          <li>أخبر الطبيب فورًا عند ظهور أي طفح جلدي أو صعوبة تنفس بعد الدواء</li>
+        </ul>
+      </div>
+      <div class="age-card">
+        <span class="tag">الشباب والمراهقون</span>
+        <h3>من 13 إلى 25 سنة</h3>
+        <ul>
+          <li>لا تشارك أدويتك الموصوفة مع أصدقائك حتى لو تشابهت الأعراض</li>
+          <li>انتبه لتفاعل بعض الأدوية مع المشروبات المنبهة أو الرياضة الشاقة</li>
+          <li>اقرأ النشرة الداخلية قبل استخدام أي دواء بدون وصفة طبية</li>
+          <li>أكمل مدة العلاج بالمضاد الحيوي كاملة حتى لو تحسنت الأعراض</li>
+        </ul>
+      </div>
+      <div class="age-card">
+        <span class="tag">البالغون</span>
+        <h3>من 26 إلى 59 سنة</h3>
+        <ul>
+          <li>احرص على مراجعة الصيدلي عند تناول أكثر من دواء معًا لتجنب التداخلات</li>
+          <li>خزّن الأدوية بعيدًا عن الرطوبة والحرارة وحافظ على تاريخ الصلاحية</li>
+          <li>أثناء الحمل أو الرضاعة استشر الطبيب قبل أي دواء جديد</li>
+          <li>لا تتوقف عن دواء مزمن دون استشارة الطبيب المعالج</li>
+        </ul>
+      </div>
+      <div class="age-card">
+        <span class="tag">كبار السن</span>
+        <h3>60 سنة فأكثر</h3>
+        <ul>
+          <li>احتفظ بقائمة محدثة بكل الأدوية التي تتناولها وشاركها مع كل طبيب تزوره</li>
+          <li>اطلب من الصيدلي مراجعة الأدوية دوريًا لتقليل التداخلات الدوائية</li>
+          <li>استخدم علبة تنظيم جرعات أسبوعية لتقليل نسيان أو تكرار الجرعة</li>
+          <li>أبلغ الطبيب فورًا عند الشعور بدوخة أو عدم توازن بعد بدء دواء جديد</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="scheduled" class="scheduled">
+  <div class="wrap sched-inner">
+    <div class="sched-copy">
+      <div class="section-head">
+        <h2>الأدوية المجدولة</h2>
+        <p>بعض الأدوية تحتاج لضوابط أكبر حفاظًا على سلامتكم، ولهذا نلتزم بصرفها وفق قواعد واضحة.</p>
+      </div>
+      <p>الأدوية المجدولة (الخاضعة للرقابة الدوائية) لا تُصرف إلا بموجب روشتة طبية أصلية من طبيب مختص، ولا يمكن صرفها بالتليفون أو بدون الاطلاع على الروشتة الأصلية.</p>
+      <ul>
+        <li>تُقبل الروشتة خلال 5 أيام كحد أقصى من تاريخ الكشف</li>
+        <li>بعد مرور 5 أيام، يلزم كشف جديد وروشتة محدثة</li>
+        <li>يُفضّل إحضار الروشتة الأصلية عند الحضور للصيدلية لتجنب التأخير</li>
+      </ul>
+    </div>
+    <div class="timeline-card">
+      <div class="big">5 <span>أيام</span></div>
+      <p class="cap">الحد الأقصى لصلاحية الروشتة من تاريخ الكشف الطبي</p>
+      <div class="tl-bar">
+        <div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div>
+      </div>
+      <div class="tl-labels"><span>يوم الكشف</span><span>تنتهي الصلاحية</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="order">
+  <div class="wrap order-grid">
+    <div>
+      <div class="section-head">
+        <h2>اطلب دواءك</h2>
+        <p>املأ البيانات وسنتواصل معك لتأكيد التوفر وموعد الاستلام أو التوصيل.</p>
+      </div>
+      <div class="order-note">
+        <strong>ملحوظة عن الأدوية المجدولة</strong>
+        عند طلب دواء يحتاج روشتة، يُرجى إحضار الروشتة الأصلية سارية الصلاحية (خلال 5 أيام من تاريخ الكشف) عند الاستلام.
+      </div>
+    </div>
+
+    <form id="orderForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="name">الاسم</label>
+          <input type="text" id="name" required placeholder="اسمك الكامل">
+        </div>
+        <div class="field">
+          <label for="phone">رقم الهاتف</label>
+          <input type="tel" id="phone" required placeholder="01xxxxxxxxx">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="medicine">اسم الدواء / الأدوية المطلوبة</label>
+        <input type="text" id="medicine" required placeholder="مثال: باراسيتامول 500، أوجمنتين...">
+      </div>
+
+      <div class="field">
+        <label for="type">هل يحتاج الدواء روشتة؟</label>
+        <select id="type">
+          <option value="بدون روشتة">لا، بدون روشتة</option>
+          <option value="بروشتة عادية">نعم، بروشتة عادية</option>
+          <option value="دواء مجدول">نعم، دواء مجدول (يتطلب روشتة أصلية خلال 5 أيام)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="address">عنوان الاستلام أو التوصيل</label>
+        <textarea id="address" placeholder="اكتب العنوان بالتفصيل، أو اذكر إن كان الاستلام من الصيدلية"></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn btn-amber">إرسال الطلب عبر واتساب</button>
+        <span class="hint">سيتم فتح واتساب برسالة جاهزة تحتوي على بيانات طلبك</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>صيدلية د. روماني بخيت محارب</h4>
+        <p>مركز البلينا، محافظة سوهاج<br>شارع تقسيم عادل وساف، بجوار بنك مصر (فرع أمون)</p>
+      </div>
+      <div>
+        <h4>تواصل معنا</h4>
+        <a href="tel:01200570091" dir="ltr">01200570091</a>
+        <a href="https://wa.me/201200570091" target="_blank" rel="noopener">راسلنا على واتساب</a>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <a href="#age-groups">إرشادات الأدوية</a>
+        <a href="#scheduled">الأدوية المجدولة</a>
+        <a href="#order">اطلب دواء</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      المعلومات الواردة في هذا الموقع إرشادية عامة ولا تُغني عن استشارة الطبيب أو الصيدلي.
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=> t.classList.remove('show'), 3000);
+}
+
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const medicine = document.getElementById('medicine').value.trim();
+  const type = document.getElementById('type').value;
+  const address = document.getElementById('address').value.trim();
+
+  if(!name || !phone || !medicine){
+    showToast('يرجى إكمال الاسم ورقم الهاتف والدواء المطلوب');
+    return;
+  }
+
+  let message = 'طلب دواء جديد من موقع الصيدلية%0A';
+  message += 'الاسم: ' + name + '%0A';
+  message += 'الهاتف: ' + phone + '%0A';
+  message += 'الدواء المطلوب: ' + medicine + '%0A';
+  message += 'نوع الطلب: ' + type + '%0A';
+  if(address){ message += 'العنوان: ' + address + '%0A'; }
+
+  window.open('https://wa.me/201200570091?text=' + message, '_blank');
+  showToast('تم فتح واتساب لإرسال طلبك');
+});
+</script>
+
+</body>
+</html>
