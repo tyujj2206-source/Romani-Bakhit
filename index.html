@@ -27,80 +27,105 @@ body{
   color:var(--ink);
   line-height:1.8;
 }
-h1,h2,h3,.brand{font-family:'El Messiri', serif;}
+h1,h2,h3,.brand{
+  font-family:'El Messiri', serif;
+}
 img,svg{display:block; max-width:100%;}
 a{color:inherit; text-decoration:none;}
 ul{list-style:none;}
 .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
 
 /* Header */
-header{position:sticky; top:0; z-index:50; background:var(--teal-dark); color:#F4F2EA; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
-.nav-row{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1080px; margin:0 auto; gap:16px; flex-wrap:wrap;}
-.brand{font-size:1.25rem; font-weight:700; color:#fff; display:flex; align-items:center; gap:10px;}
-.brand .mark{width:30px; height:30px; flex-shrink:0;}
+header{
+  position:sticky; top:0; z-index:50;
+  background:var(--teal-dark);
+  color:#F4F2EA;
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 24px; max-width:1080px; margin:0 auto;
+  gap:16px; flex-wrap:wrap;
+}
+.brand{
+  font-size:1.25rem; font-weight:700; color:#fff;
+  display:flex; align-items:center; gap:10px;
+}
+.brand .mark{
+  width:30px; height:30px; flex-shrink:0;
+}
 nav ul{display:flex; gap:26px; flex-wrap:wrap;}
-nav a{font-size:.95rem; color:#CFE4DC; padding:4px 2px; border-bottom:2px solid transparent; transition:border-color .2s, color .2s;}
+nav a{
+  font-size:.95rem; color:#CFE4DC; padding:4px 2px;
+  border-bottom:2px solid transparent;
+  transition:border-color .2s, color .2s;
+}
 nav a:hover{color:#fff; border-color:var(--amber);}
 
 /* Hero */
-.hero{background:linear-gradient(180deg, var(--teal-dark) 0%, var(--teal) 130%); color:#F4F2EA; padding:70px 0 90px; position:relative; overflow:hidden;}
-.hero::after{content:""; position:absolute; left:-80px; bottom:-120px; width:340px; height:340px; border-radius:50%; background:rgba(255,255,255,.05);}
-.hero-inner{display:grid; grid-template-columns:1.3fr 1fr; gap:50px; align-items:center; position:relative; z-index:2;}
-.eyebrow-line{color:var(--amber-soft); font-size:1rem; margin-bottom:10px; opacity:.9;}
-.hero h1{font-size:2.5rem; font-weight:700; line-height:1.35; color:#fff; margin-bottom:18px;}
-.hero p.lead{font-size:1.05rem; color:#DCEAE4; max-width:52ch; margin-bottom:30px;}
+.hero{
+  background:linear-gradient(180deg, var(--teal-dark) 0%, var(--teal) 130%);
+  color:#F4F2EA;
+  padding:70px 0 90px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute; left:-80px; bottom:-120px;
+  width:340px; height:340px; border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+.hero-inner{
+  display:grid; grid-template-columns:1.3fr 1fr; gap:50px; align-items:center;
+  position:relative; z-index:2;
+}
+.eyebrow-line{
+  color:var(--amber-soft); font-size:1rem; margin-bottom:10px; opacity:.9;
+}
+.hero h1{
+  font-size:2.5rem; font-weight:700; line-height:1.35; color:#fff;
+  margin-bottom:18px;
+}
+.hero p.lead{
+  font-size:1.05rem; color:#DCEAE4; max-width:52ch; margin-bottom:30px;
+}
 .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
 
-/* --- ANIMATED BUTTONS (Medical & Eye-pleasing) --- */
+/* Medical Soft Animation Buttons */
 .btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  padding:13px 26px; border-radius:8px; font-size:1rem; font-weight:600;
-  cursor:pointer; border:none; position: relative; overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 26px; border-radius:8px; font-size:1rem; font-weight:500;
+  cursor:pointer; border:none; 
+  transition:transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
-/* Hover Effect: Slight lift and glow */
 .btn:hover{
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(31, 111, 92, 0.2);
+  box-shadow: 0 6px 16px rgba(196,134,58,0.25);
 }
-/* Active/Click Effect: Soft press down */
 .btn:active{
-  transform: scale(0.96) translateY(0);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: translateY(-1px) scale(0.98);
 }
-/* Ripple Effect Container */
-.btn::after {
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 5px; height: 5px;
-  background: rgba(255, 255, 255, 0.4);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%, -50%);
-  transform-origin: 50% 50%;
-}
-/* Ripple Animation on Focus/Click */
-.btn:focus:not(:active)::after {
-  animation: ripple 0.6s ease-out;
-}
-@keyframes ripple {
-  0% { transform: scale(0, 0); opacity: 0.5; }
-  100% { transform: scale(40, 40); opacity: 0; }
-}
-
 .btn-amber{background:var(--amber); color:#fff;}
 .btn-amber:hover{background:#B4762F;}
 .btn-outline{border:1.5px solid rgba(255,255,255,.5); color:#fff; background: transparent;}
-.btn-outline:hover{background:rgba(255,255,255,.1);}
-.btn-sm{padding: 8px 16px; font-size: 0.9rem; border-radius: 6px;}
+.btn-outline:hover{background:rgba(255,255,255,.12); border-color:#fff;}
 
-.hero-card{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:26px; backdrop-filter:blur(2px);}
+.hero-card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;
+  padding:26px;
+  backdrop-filter:blur(2px);
+}
 .hero-card h3{color:#fff; font-size:1.05rem; margin-bottom:14px; font-weight:600;}
-.hero-card .row{display:flex; gap:12px; align-items:flex-start; margin-bottom:14px; font-size:.92rem; color:#E4EFEA;}
+.hero-card .row{
+  display:flex; gap:12px; align-items:flex-start; margin-bottom:14px; font-size:.92rem; color:#E4EFEA;
+}
 .hero-card .row:last-child{margin-bottom:0;}
-.hero-card .ic{width:20px; height:20px; flex-shrink:0; margin-top:3px; color:var(--amber-soft);}
+.hero-card .ic{
+  width:20px; height:20px; flex-shrink:0; margin-top:3px; color:var(--amber-soft);
+}
 
 /* Section shared */
 section{padding:70px 0;}
@@ -109,96 +134,157 @@ section{padding:70px 0;}
 .section-head p{color:#465650; font-size:1.02rem;}
 
 /* Age groups */
-.age-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;}
-.age-card{background:var(--bg-panel); border:1px solid var(--line); border-radius:8px; padding:26px 22px; position:relative; transition: transform 0.3s ease, box-shadow 0.3s ease;}
-.age-card:hover{transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05);}
-.age-card .tag{display:inline-block; font-size:.82rem; color:var(--teal); border:1px solid var(--teal-soft); background:var(--teal-soft); padding:3px 12px; border-radius:20px; margin-bottom:14px;}
+.age-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+}
+.age-card{
+  background:var(--bg-panel);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:26px 22px;
+  position:relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.age-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(15,62,53,0.06);
+}
+.age-card .tag{
+  display:inline-block; font-size:.82rem; color:var(--teal);
+  border:1px solid var(--teal-soft); background:var(--teal-soft);
+  padding:3px 12px; border-radius:20px; margin-bottom:14px;
+}
 .age-card h3{font-size:1.15rem; margin-bottom:12px; color:var(--ink); font-weight:600;}
-.age-card ul li{font-size:.92rem; color:#455249; padding-right:16px; position:relative; margin-bottom:9px;}
-.age-card ul li::before{content:"–"; position:absolute; right:0; color:var(--amber);}
+.age-card ul li{
+  font-size:.92rem; color:#455249; padding-right:16px; position:relative; margin-bottom:9px;
+}
+.age-card ul li::before{
+  content:"–"; position:absolute; right:0; color:var(--amber);
+}
+
+/* Drugs Catalog Section (New) */
+.catalog-section{
+  background:#EBE7DF;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.catalog-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+}
+.catalog-card{
+  background:var(--bg-panel);
+  border-radius:10px;
+  padding:24px;
+  border:1px solid var(--line);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.catalog-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+}
+.catalog-card h3{
+  font-size:1.2rem; color:var(--teal-dark); margin-bottom:10px;
+  display:flex; align-items:center; gap:8px;
+}
+.catalog-card p{font-size:.9rem; color:#55635B; margin-bottom:14px;}
+.drug-tags{
+  display:flex; flex-wrap:wrap; gap:6px;
+}
+.drug-tag{
+  background:var(--teal-soft); color:var(--teal-dark);
+  font-size:.8rem; padding:4px 10px; border-radius:6px; font-weight:500;
+}
+.drug-tag.imp{
+  background:var(--amber-soft); color:#7A4C13;
+}
 
 /* Scheduled meds */
-.scheduled{background:var(--teal-dark); color:#EFEAdd;}
+.scheduled{
+  background:var(--teal-dark);
+  color:#EFEAdd;
+}
 .scheduled .section-head h2{color:#fff;}
 .scheduled .section-head p{color:#C7DBD3;}
-.sched-inner{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+.sched-inner{
+  display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+}
 .sched-copy p{color:#D9E7E1; margin-bottom:16px; font-size:.98rem;}
 .sched-copy ul{margin-top:18px;}
-.sched-copy ul li{color:#E7F0EB; font-size:.95rem; margin-bottom:12px; padding-right:20px; position:relative;}
+.sched-copy ul li{
+  color:#E7F0EB; font-size:.95rem; margin-bottom:12px; padding-right:20px; position:relative;
+}
 .sched-copy ul li::before{content:"✓"; position:absolute; right:0; color:var(--amber-soft);}
-.timeline-card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:10px; padding:30px;}
-.timeline-card .big{font-size:3.4rem; font-weight:700; color:#fff; font-family:'El Messiri',serif; line-height:1;}
+
+.timeline-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:10px; padding:30px;
+}
+.timeline-card .big{
+  font-size:3.4rem; font-weight:700; color:#fff; font-family:'El Messiri',serif; line-height:1;
+}
 .timeline-card .big span{font-size:1.3rem; color:var(--amber-soft); font-weight:500;}
 .timeline-card .cap{color:#CFE1DA; font-size:.95rem; margin:10px 0 26px;}
-.tl-bar{display:flex; gap:4px; margin-bottom:10px;}
-.tl-bar .seg{flex:1; height:8px; border-radius:4px; background:rgba(255,255,255,.15);}
+.tl-bar{
+  display:flex; gap:4px; margin-bottom:10px;
+}
+.tl-bar .seg{
+  flex:1; height:8px; border-radius:4px; background:rgba(255,255,255,.15);
+}
 .tl-bar .seg.on{background:var(--amber);}
 .tl-labels{display:flex; justify-content:space-between; font-size:.78rem; color:#B9CFC6;}
 
-/* --- NEW: Medicine Directory Section --- */
-.medicine-dir { background: var(--bg-panel); }
-.search-box {
-  position: relative; margin-bottom: 30px;
-}
-.search-box input {
-  width: 100%; padding: 16px 20px 16px 50px; border: 2px solid var(--line); border-radius: 10px;
-  font-family: 'Tajawal', sans-serif; font-size: 1.05rem; background: #fff; color: var(--ink);
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-.search-box input:focus {
-  outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px var(--teal-soft);
-}
-.search-box .search-icon {
-  position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
-  color: var(--teal); width: 24px; height: 24px;
-}
-.meds-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
-}
-.med-card {
-  background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 20px;
-  transition: all 0.3s ease; position: relative; overflow: hidden;
-}
-.med-card:hover { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
-.med-card .med-type {
-  position: absolute; top: 15px; left: 15px; font-size: 0.75rem; padding: 4px 10px;
-  border-radius: 20px; font-weight: 600;
-}
-.med-type.local { background: #E8F5E9; color: #2E7D32; }
-.med-type.imported { background: #E3F2FD; color: #1565C0; }
-.med-type.scheduled { background: #FFEBEE; color: #C62828; }
-
-.med-card h4 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 6px; margin-top: 10px; }
-.med-card .sci-name { font-size: 0.85rem; color: #6B7A72; font-style: italic; margin-bottom: 12px; }
-.med-card .med-info { font-size: 0.9rem; color: var(--ink); margin-bottom: 15px; display: flex; flex-direction: column; gap: 4px; }
-.med-card .med-info span { display: flex; align-items: center; gap: 6px; }
-.no-results { text-align: center; padding: 40px; color: #6B7A72; font-size: 1.1rem; grid-column: 1 / -1; }
-
 /* Order section */
-.order{background:var(--bg);}
-.order-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:50px; align-items:start;}
-.order-note{background:var(--teal-soft); border-radius:8px; padding:22px; margin-top:22px; font-size:.9rem; color:#1D4237; border-right: 4px solid var(--teal);}
+.order{
+  background:var(--bg-panel);
+}
+.order-grid{
+  display:grid; grid-template-columns:1fr 1.15fr; gap:50px; align-items:start;
+}
+.order-note{
+  background:var(--teal-soft); border-radius:8px; padding:22px; margin-top:22px;
+  font-size:.9rem; color:#1D4237;
+}
 .order-note strong{display:block; margin-bottom:6px; color:var(--teal-dark);}
-form{background:var(--bg-panel); border:1px solid var(--line); border-radius:10px; padding:30px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);}
+
+form{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:30px;
+}
 .field{margin-bottom:18px;}
-.field label{display:block; font-size:.9rem; margin-bottom:7px; color:#33453C; font-weight:500;}
+.field label{
+  display:block; font-size:.9rem; margin-bottom:7px; color:#33453C; font-weight:500;
+}
 .field input, .field textarea, .field select{
   width:100%; padding:11px 14px; border:1px solid var(--line); border-radius:6px;
-  font-family:'Tajawal',sans-serif; font-size:.95rem; background:#fff; color:var(--ink); transition: border 0.3s;
+  font-family:'Tajawal',sans-serif; font-size:.95rem; background:#fff; color:var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.field input:focus, .field textarea:focus, .field select:focus{outline:none; border-color:var(--teal);}
+.field input:focus, .field textarea:focus, .field select:focus{
+  outline:none; border-color:var(--teal);
+  box-shadow: 0 0 0 3px rgba(31,111,92,0.12);
+}
 .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
 textarea{min-height:100px; resize:vertical;}
 .submit-row{display:flex; align-items:center; gap:14px; margin-top:8px; flex-wrap:wrap;}
 .hint{font-size:.82rem; color:#6B7A72;}
 
 /* Footer / contact */
-footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
-.foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px; margin-bottom:36px;}
+footer{
+  background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;
+}
+.foot-grid{
+  display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px; margin-bottom:36px;
+}
 .foot-grid h4{color:#fff; font-size:1.05rem; margin-bottom:16px; font-weight:600;}
 .foot-grid p, .foot-grid a{font-size:.9rem; color:#B9CFC6; display:block; margin-bottom:10px;}
 .foot-grid a:hover{color:#fff;}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.12); padding-top:20px; font-size:.82rem; color:#93A8A0; text-align:center;}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.12); padding-top:20px;
+  font-size:.82rem; color:#93A8A0; text-align:center;
+}
 
 /* Toast */
 #toast{
@@ -210,7 +296,7 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
 #toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
 
 @media(max-width:860px){
-  .hero-inner, .sched-inner, .order-grid{grid-template-columns:1fr;}
+  .hero-inner, .sched-inner, .order-grid, .catalog-grid{grid-template-columns:1fr;}
   .age-grid{grid-template-columns:1fr 1fr;}
   .foot-grid{grid-template-columns:1fr; gap:26px;}
   .field-row{grid-template-columns:1fr;}
@@ -233,10 +319,11 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
     </div>
     <nav>
       <ul>
-        <li><a href="#medicines">دليل الأدوية</a></li>
-        <li><a href="#age-groups">إرشادات</a></li>
-        <li><a href="#scheduled">المجدولة</a></li>
+        <li><a href="#age-groups">إرشادات الأدوية</a></li>
+        <li><a href="#drugs-catalog">دليل الأدوية</a></li>
+        <li><a href="#scheduled">الأدوية المجدولة</a></li>
         <li><a href="#order">اطلب دواء</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
       </ul>
     </nav>
   </div>
@@ -247,10 +334,10 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
     <div>
       <div class="eyebrow-line">مركز البلينا، سوهاج</div>
       <h1>صيدليتكم الموثوقة في قلب البلينا</h1>
-      <p class="lead">معلومات واضحة عن الأدوية تناسب كل أفراد الأسرة، ودليل بحث ذكي، وخدمة طلب سريعة لما تحتاجه دون عناء.</p>
+      <p class="lead">معلومات واضحة عن الأدوية تناسب كل أفراد الأسرة، وتوفير كافة العقاقير المصرية والمستوردة وخدمة طلب سريعة.</p>
       <div class="hero-actions">
         <a href="#order" class="btn btn-amber">اطلب دواءك الآن</a>
-        <a href="#medicines" class="btn btn-outline">تصفح دليل الأدوية</a>
+        <a href="#drugs-catalog" class="btn btn-outline">استعرض دليل الأدوية</a>
       </div>
     </div>
     <div class="hero-card">
@@ -271,25 +358,6 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
   </div>
 </section>
 
-<!-- NEW: Medicine Directory Section -->
-<section id="medicines" class="medicine-dir">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>دليل الأدوية والبحث</h2>
-      <p>ابحث عن اسم الدواء (تجاري أو علمي) لمعرفة معلوماته الأساسية، نوعه، وبدائله. (قاعدة البيانات قابلة للتوسيع).</p>
-    </div>
-    
-    <div class="search-box">
-      <input type="text" id="medSearch" placeholder="ابحث عن اسم الدواء (مثال: بانادول، أوجمنتين، كتافلام...)">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-    </div>
-
-    <div class="meds-grid" id="medsGrid">
-      <!-- Medicines will be injected here by JavaScript -->
-    </div>
-  </div>
-</section>
-
 <section id="age-groups">
   <div class="wrap">
     <div class="section-head">
@@ -304,34 +372,115 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
           <li>لا تُقدَّر الجرعة بالتخمين، استخدم دائمًا المِلعقة أو المِحقنة المرفقة</li>
           <li>اسأل الصيدلي قبل إعطاء أي دواء غير موصوف</li>
           <li>احفظ الأدوية بعيدًا عن متناول يد الطفل</li>
+          <li>أخبر الطبيب فورًا عند ظهور أي طفح جلدي أو صعوبة تنفس</li>
         </ul>
       </div>
       <div class="age-card">
-        <span class="tag">الشباب</span>
+        <span class="tag">الشباب والمراهقون</span>
         <h3>من 13 إلى 25 سنة</h3>
         <ul>
           <li>لا تشارك أدويتك الموصوفة مع أصدقائك</li>
-          <li>انتبه لتفاعل بعض الأدوية مع المشروبات المنبهة</li>
-          <li>أكمل مدة العلاج بالمضاد الحيوي كاملة</li>
+          <li>انتبه لتفاعل بعض الأدوية مع المنبهات الرياضية</li>
+          <li>اقرأ النشرة الداخلية بعناية فائقة</li>
+          <li>أكمل مدة المضاد الحيوي كاملة تماماً</li>
         </ul>
       </div>
       <div class="age-card">
         <span class="tag">البالغون</span>
         <h3>من 26 إلى 59 سنة</h3>
         <ul>
-          <li>راجع الصيدلي عند تناول أكثر من دواء معًا لتجنب التداخلات</li>
+          <li>راجع الصيدلي عند تناول أكثر من دواء لتجنب التعارض</li>
           <li>خزّن الأدوية بعيدًا عن الرطوبة والحرارة</li>
-          <li>أثناء الحمل أو الرضاعة استشر الطبيب قبل أي دواء جديد</li>
+          <li>أثناء الحمل أو الرضاعة استشر الطبيب حصراً</li>
+          <li>لا تتوقف عن دواء مزمن دون إشراف طبي</li>
         </ul>
       </div>
       <div class="age-card">
         <span class="tag">كبار السن</span>
         <h3>60 سنة فأكثر</h3>
         <ul>
-          <li>احتفظ بقائمة محدثة بكل الأدوية التي تتناولها</li>
-          <li>اطلب من الصيدلي مراجعة الأدوية دوريًا لتقليل التداخلات</li>
-          <li>استخدم علبة تنظيم جرعات أسبوعية</li>
+          <li>احتفظ بقائمة محدثة بكل أدويتك المزمنة</li>
+          <li>اطلب مراجعة الأدوية دورياً لتفادي أي تداخلات</li>
+          <li>استخدم منظم الجرعات الأسبوعي لتجنب النسيان</li>
+          <li>أبلغ الطبيب فوراً عند الشعور بدوخة أو عدم توازن</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- New Drugs Catalog Section -->
+<section id="drugs-catalog" class="catalog-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>دليل الأدوية والعقاقير المتاحة</h2>
+      <p>نوفّر تشكيلة واسعة وشاملة من الأدوية المحلية والمستوردة والمستلزمات الطبية المتنوعة.</p>
+    </div>
+    <div class="catalog-grid">
+      <div class="catalog-card">
+        <h3>مسكنات وخافضات الحرارة</h3>
+        <p>تتوفر كافة الأنواع المحلية والمستوردة لتسكين الآلام وخفض الحرارة للكبار والصغار.</p>
+        <div class="drug-tags">
+          <span class="drug-tag">بنادول (Panadol)</span>
+          <span class="drug-tag">باراسيتامول</span>
+          <span class="drug-tag">Cataflam</span>
+          <span class="drug-tag">بروفين</span>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <h3>المضادات الحيوية والعلاجات</h3>
+        <p>مضادات حيوية واسعة المدى وأدوية التهابات الجهاز التنفسي والهضمي بشرية أصلية.</p>
+        <div class="drug-tags">
+          <span class="drug-tag">Augmentin</span>
+          <span class="drug-tag">أوجمنتين</span>
+          <span class="drug-tag">Zinnat</span>
+          <span class="drug-tag">أبيمكس</span>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <h3>أدوية الأمراض المزمنة</h3>
+        <p>عقاقير الضغط، السكر، القلب، والكوليسترول، مع توفير البدائل المعتمدة رسمياً.</p>
+        <div class="drug-tags">
+          <span class="drug-tag">Concor</span>
+          <span class="drug-tag">Glucophage</span>
+          <span class="drug-tag">Lipitor</span>
+          <span class="drug-tag">أبرولاز</span>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <h3>الفيتامينات والمستورد</h3>
+        <p>المكملات الغذائية، الفيتامينات المستوردة الأصلية، ومقويات المناعة والعناية الشخصية.</p>
+        <div class="drug-tags">
+          <span class="drug-tag imp">Centrum مستورد</span>
+          <span class="drug-tag imp">Omega 3</span>
+          <span class="drug-tag">رويال فيت جي</span>
+          <span class="drug-tag">ستاك فري</span>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <h3>أدوية الأطفال والألبان</h3>
+        <p>نقط، أشراب خافضة للحرارة ومستلزمات الأطفال والألبان العلاجية والمدعمة.</p>
+        <div class="drug-tags">
+          <span class="drug-tag">سيتال نقط</span>
+          <span class="drug-tag">نوفوريل</span>
+          <span class="drug-tag">بيدياميل</span>
+          <span class="drug-tag">مستلزمات رضاعة</span>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <h3>مستلزمات طبية وعناية</h3>
+        <p>أجهزة قياس السكر والضغط، الكمامات، المطهرات، والأدوات الجراحية المنزلية.</p>
+        <div class="drug-tags">
+          <span class="drug-tag">أجهزة ضغط</span>
+          <span class="drug-tag">شرائط سكر</span>
+          <span class="drug-tag">كحول ومطهرات</span>
+          <span class="drug-tag">فيتامينات عامة</span>
+        </div>
       </div>
     </div>
   </div>
@@ -344,11 +493,11 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
         <h2>الأدوية المجدولة</h2>
         <p>بعض الأدوية تحتاج لضوابط أكبر حفاظًا على سلامتكم، ولهذا نلتزم بصرفها وفق قواعد واضحة.</p>
       </div>
-      <p>الأدوية المجدولة (الخاضعة للرقابة الدوائية) لا تُصرف إلا بموجب روشتة طبية أصلية من طبيب مختص.</p>
+      <p>الأدوية المجدولة (الخاضعة للرقابة الدوائية) لا تُصرف إلا بموجب روشتة طبية أصلية من طبيب مختص، ولا يمكن صرفها بالتليفون أو بدون الاطلاع على الروشتة الأصلية.</p>
       <ul>
         <li>تُقبل الروشتة خلال 5 أيام كحد أقصى من تاريخ الكشف</li>
         <li>بعد مرور 5 أيام، يلزم كشف جديد وروشتة محدثة</li>
-        <li>يُفضّل إحضار الروشتة الأصلية عند الحضور للصيدلية</li>
+        <li>يُفضّل إحضار الروشتة الأصلية عند الحضور للصيدلية لتجنب التأخير</li>
       </ul>
     </div>
     <div class="timeline-card">
@@ -370,7 +519,7 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
         <p>املأ البيانات وسنتواصل معك لتأكيد التوفر وموعد الاستلام أو التوصيل.</p>
       </div>
       <div class="order-note">
-        <strong>ملحوظة هامة</strong>
+        <strong>ملحوظة عن الأدوية المجدولة</strong>
         عند طلب دواء يحتاج روشتة، يُرجى إحضار الروشتة الأصلية سارية الصلاحية (خلال 5 أيام من تاريخ الكشف) عند الاستلام.
       </div>
     </div>
@@ -389,7 +538,7 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
 
       <div class="field">
         <label for="medicine">اسم الدواء / الأدوية المطلوبة</label>
-        <input type="text" id="medicine" required placeholder="مثال: بانادول إكسترا، أوجمنتين 1جم...">
+        <input type="text" id="medicine" required placeholder="مثال: بانادول إكسترا، أوجمنتين، سينتروم...">
       </div>
 
       <div class="field">
@@ -428,14 +577,14 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
       </div>
       <div>
         <h4>روابط سريعة</h4>
-        <a href="#medicines">دليل الأدوية</a>
         <a href="#age-groups">إرشادات الأدوية</a>
+        <a href="#drugs-catalog">دليل الأدوية</a>
         <a href="#scheduled">الأدوية المجدولة</a>
         <a href="#order">اطلب دواء</a>
       </div>
     </div>
     <div class="foot-bottom">
-      المعلومات الواردة في هذا الموقع إرشادية عامة ولا تُغني عن استشارة الطبيب أو الصيدلي. الأسعار تقريبية وقد تختلف.
+      المعلومات الواردة في هذا الموقع إرشادية عامة ولا تُغني عن استشارة الطبيب أو الصيدلي.
     </div>
   </div>
 </footer>
@@ -443,7 +592,6 @@ footer{background:var(--teal-dark); color:#DCEAE4; padding:50px 0 30px;}
 <div id="toast"></div>
 
 <script>
-// --- 1. Toast Notification ---
 function showToast(msg){
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -451,82 +599,6 @@ function showToast(msg){
   setTimeout(()=> t.classList.remove('show'), 3000);
 }
 
-// --- 2. Medicine Database (Sample - Easily Expandable) ---
-// ملاحظة: هذه عينة من الأدوية. لتوسيعها، يمكنك إضافة المزيد من الكائنات هنا، 
-// أو لاحقاً ربط هذا الجزء بملف JSON خارجي للحفاظ على سرعة الموقع.
-const medicinesDB = [
-  { name: "بانادول إكسترا", sciName: "Paracetamol + Caffeine", type: "local", category: "مسكن وخافض للحرارة", price: "35 ج.م", rx: "لا" },
-  { name: "أوجمنتين 1 جم", sciName: "Amoxicillin + Clavulanic Acid", type: "local", category: "مضاد حيوي", price: "90 ج.م", rx: "نعم" },
-  { name: "كتافلام 50 مجم", sciName: "Diclofenac Potassium", type: "local", category: "مضاد للالتهاب ومسكن", price: "65 ج.م", rx: "لا" },
-  { name: "كونكور 5 مجم", sciName: "Bisoprolol", type: "imported", category: "أدوية القلب وضغط الدم", price: "120 ج.م", rx: "نعم" },
-  { name: "أوميبيرازول 20 مجم", sciName: "Omeprazole", type: "local", category: "مضاد للحموضة وقرحة المعدة", price: "25 ج.م", rx: "لا" },
-  { name: "فيوجين 250 مجم", sciName: "Fucidin", type: "imported", category: "مضاد حيوي موضعي/فموي", price: "150 ج.م", rx: "نعم" },
-  { name: "سيتالوبرام 20 مجم", sciName: "Citalopram", type: "scheduled", category: "مضاد للاكتئاب والقلق", price: "85 ج.م", rx: "مجدول" },
-  { name: "أدول 500 مجم", sciName: "Paracetamol", type: "local", category: "مسكن وخافض للحرارة", price: "20 ج.م", rx: "لا" },
-  { name: "فولتارين جل", sciName: "Diclofenac Diethylamine", type: "imported", category: "مسكن موضعي للآلام", price: "110 ج.م", rx: "لا" },
-  { name: "زيرتك 10 مجم", sciName: "Cetirizine", type: "local", category: "مضاد للحساسية", price: "30 ج.م", rx: "لا" },
-  { name: "جلوكوفاج 850 مجم", sciName: "Metformin", type: "imported", category: "أدوية السكر", price: "95 ج.م", rx: "نعم" },
-  { name: "ترامادول 50 مجم", sciName: "Tramadol", type: "scheduled", category: "مسكن قوي للألم", price: "45 ج.م", rx: "مجدول" }
-];
-
-const medsGrid = document.getElementById('medsGrid');
-const medSearch = document.getElementById('medSearch');
-
-function renderMeds(meds) {
-  medsGrid.innerHTML = '';
-  if (meds.length === 0) {
-    medsGrid.innerHTML = '<div class="no-results">لم يتم العثور على نتائج مطابقة. يرجى التأكد من اسم الدواء أو استشارة الصيدلي.</div>';
-    return;
-  }
-  
-  meds.forEach(med => {
-    const typeLabel = med.type === 'local' ? 'محلي' : med.type === 'imported' ? 'مستورد' : 'مجدول';
-    const rxText = med.rx === 'مجدول' ? 'يتطلب روشتة أصلية' : med.rx === 'نعم' ? 'يحتاج روشتة' : 'بدون روشتة';
-    
-    const card = document.createElement('div');
-    card.className = 'med-card';
-    card.innerHTML = `
-      <span class="med-type ${med.type}">${typeLabel}</span>
-      <h4>${med.name}</h4>
-      <div class="sci-name">${med.sciName}</div>
-      <div class="med-info">
-        <span>📌 ${med.category}</span>
-        <span>💊 ${rxText}</span>
-        <span>💰 السعر التقريبي: ${med.price}</span>
-      </div>
-      <button class="btn btn-amber btn-sm" onclick="requestMed('${med.name}', '${med.rx}')">اطلب هذا الدواء</button>
-    `;
-    medsGrid.appendChild(card);
-  });
-}
-
-// Initial render
-renderMeds(medicinesDB);
-
-// Search functionality
-medSearch.addEventListener('input', (e) => {
-  const query = e.target.value.toLowerCase().trim();
-  const filtered = medicinesDB.filter(med => 
-    med.name.toLowerCase().includes(query) || 
-    med.sciName.toLowerCase().includes(query) ||
-    med.category.includes(query)
-  );
-  renderMeds(filtered);
-});
-
-// Helper to pre-fill order form from search
-window.requestMed = function(medName, rxType) {
-  document.getElementById('medicine').value = medName;
-  const typeSelect = document.getElementById('type');
-  if(rxType === 'مجدول') typeSelect.value = 'دواء مجدول';
-  else if(rxType === 'نعم') typeSelect.value = 'بروشتة عادية';
-  else typeSelect.value = 'بدون روشتة';
-  
-  document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-  showToast(`تم إضافة "${medName}" إلى نموذج الطلب`);
-};
-
-// --- 3. Order Form WhatsApp Integration ---
 document.getElementById('orderForm').addEventListener('submit', function(e){
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
@@ -540,15 +612,15 @@ document.getElementById('orderForm').addEventListener('submit', function(e){
     return;
   }
 
-  let message = `*طلب دواء جديد من موقع الصيدلية*%0A`;
-  message += `👤 *الاسم:* ${name}%0A`;
-  message += `📱 *الهاتف:* ${phone}%0A`;
-  message += `💊 *الدواء المطلوب:* ${medicine}%0A`;
-  message += `📋 *نوع الطلب:* ${type}%0A`;
-  if(address){ message += `📍 *العنوان:* ${address}%0A`; }
+  let message = 'طلب دواء جديد من موقع الصيدلية%0A';
+  message += 'الاسم: ' + name + '%0A';
+  message += 'الهاتف: ' + phone + '%0A';
+  message += 'الدواء المطلوب: ' + medicine + '%0A';
+  message += 'نوع الطلب: ' + type + '%0A';
+  if(address){ message += 'العنوان: ' + address + '%0A'; }
 
   window.open('https://wa.me/201200570091?text=' + message, '_blank');
-  showToast('جاري فتح واتساب لإرسال طلبك...');
+  showToast('تم فتح واتساب لإرسال طلبك');
 });
 </script>
 
